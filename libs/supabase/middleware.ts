@@ -159,14 +159,6 @@ export async function updateSession(request: NextRequest) {
   }
 
   // ═══════════════════════════════════════════════════════════════════
-  // PREVIEW MODE BYPASS (for development/testing)
-  // ═══════════════════════════════════════════════════════════════════
-  const isPreviewMode = searchParams.get('preview') === 'true';
-  if (isPreviewMode && isVercelPreview) {
-    return supabaseResponse;
-  }
-
-  // ═══════════════════════════════════════════════════════════════════
   // APP SUBDOMAIN LOGIC (app.localhost / app.unjuiced.bet)
   // ═══════════════════════════════════════════════════════════════════
   if (isOnAppSubdomain) {
